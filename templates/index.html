@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileFlow | Smart File Organizer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            min-height: 100vh;
+            background: #101426;
+            color: #f5f7ff;
+            padding: 35px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 55px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            color: #a9b7ff;
+        }
+
+        .status {
+            font-size: 13px;
+            color: #8ee8bd;
+            background: #19372f;
+            padding: 9px 14px;
+            border-radius: 30px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 45px 15px 35px;
+        }
+
+        .tag {
+            color: #a9b7ff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: clamp(36px, 6vw, 62px);
+            margin: 20px 0;
+            line-height: 1.12;
+        }
+
+        h1 span {
+            color: #9c8cff;
+        }
+
+        .subtitle {
+            max-width: 570px;
+            margin: auto;
+            color: #aab1c8;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .panel {
+            max-width: 720px;
+            margin: 25px auto 40px;
+            padding: 30px;
+            border: 1px solid #303750;
+            border-radius: 22px;
+            background: linear-gradient(145deg, #1d2440, #171c31);
+            text-align: center;
+        }
+
+        .upload-icon {
+            width: 75px;
+            height: 75px;
+            margin: 0 auto 18px;
+            display: grid;
+            place-items: center;
+            border-radius: 22px;
+            background: #30305a;
+            font-size: 35px;
+        }
+
+        .panel h2 {
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .panel p {
+            color: #aab1c8;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 23px;
+        }
+
+        button {
+            border: none;
+            border-radius: 12px;
+            padding: 15px 25px;
+            background: linear-gradient(100deg, #8172ff, #aa7cff);
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        .note {
+            margin-top: 16px;
+            font-size: 12px;
+            color: #8d96b3;
+        }
+
+        .section-title {
+            font-size: 21px;
+            margin-bottom: 20px;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .category {
+            padding: 22px 12px;
+            background: #1b2138;
+            border: 1px solid #2b324d;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .category .emoji {
+            font-size: 29px;
+            margin-bottom: 12px;
+        }
+
+        .category h3 {
+            font-size: 14px;
+            margin-bottom: 7px;
+        }
+
+        .category p {
+            font-size: 12px;
+            color: #969fba;
+        }
+
+        .results {
+            margin-top: 28px;
+            padding: 22px;
+            border: 1px solid #303750;
+            border-radius: 16px;
+            background: #1b2138;
+            overflow-wrap: anywhere;
+        }
+
+        .results h2 {
+            margin-bottom: 14px;
+        }
+
+        .results li {
+            margin: 10px 0 10px 20px;
+            color: #bfc7df;
+        }
+
+        footer {
+            text-align: center;
+            color: #858da7;
+            font-size: 12px;
+            margin-top: 55px;
+        }
+
+        @media (max-width: 650px) {
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .navbar {
+                margin-bottom: 25px;
+            }
+
+            .panel {
+                padding: 24px 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <nav class="navbar">
+            <div class="logo">✦ FileFlow</div>
+            <div class="status">● Smart Organizer</div>
+        </nav>
+
+        <header class="hero">
+            <div class="tag">Simple · Smart · Organized</div>
+
+            <h1>Your files,<br><span>beautifully organized.</span></h1>
+
+            <p class="subtitle">
+                Keep your digital workspace clean. FileFlow sorts
+                sample files into meaningful categories using Python
+                automation.
+            </p>
+        </header>
+
+        <section class="panel">
+            <div class="upload-icon">📂</div>
+
+            <h2>Ready to organize?</h2>
+
+            <p>
+                Run the organizer on your project's TestFiles folder.
+                Your computer's Downloads folder will not be accessed.
+            </p>
+
+            <form action="/organize" method="POST">
+                <button type="submit">✦ Organize Sample Files</button>
+            </form>
+
+            <div class="note">
+                Python-powered · Local sample folder only
+            </div>
+        </section>
+
+        <h2 class="section-title">File categories</h2>
+
+        <section class="categories">
+            <div class="category">
+                <div class="emoji">🖼️</div>
+                <h3>Images</h3>
+                <p>JPG · PNG · GIF</p>
+            </div>
+
+            <div class="category">
+                <div class="emoji">📄</div>
+                <h3>Documents</h3>
+                <p>PDF · DOCX · TXT</p>
+            </div>
+
+            <div class="category">
+                <div class="emoji">🎬</div>
+                <h3>Videos</h3>
+                <p>MP4 · MKV · AVI</p>
+            </div>
+
+            <div class="category">
+                <div class="emoji">🎵</div>
+                <h3>Audio</h3>
+                <p>MP3 · WAV</p>
+            </div>
+        </section>
+
+        {% if messages %}
+        <section class="results">
+            <h2>📋 Organization report</h2>
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+
+        <footer>
+            FILEFLOW · Built with Python and Flask
+        </footer>
+
+    </div>
+</body>
+</html>
